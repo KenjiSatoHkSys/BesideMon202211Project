@@ -138,3 +138,36 @@ except ImportError:
 
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
+
+
+# STATIC_ROOT
+# 1. collectstaticを実行するにあたって、staticファイルを集める場所
+# 2. python manage.py collectstaticを実行することで、指定先フォルダに静的ファイルがコピーされます。本番環境のみで使用します。
+#    https://office54.net/python/django/css-javascript-static
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# STATIC_URL
+# 1. Djangoからstaticファイルにアクセスするurl。
+#    /static/とすると、Djangoのappnameというアプリのtemplate上のstaticファイル{% static 'css/base.css' %}は、
+#    HTML上ではhttp://localhost/static/appname/css/base.cssとレンダリングされる。
+# 2. Webサーバーが静的ファイルを見に行く場所を指定します。言い換えると「配信用のフォルダ」を指定しています。
+#    STATIC_URL = '/static/'
+#    基本はデフォルトから変更はしません。(https://office54.net/python/django/css-javascript-static)
+# 3. STATIC_URLは、ブラウザ上でアクセスするためのURLパスを示しています。
+#    つまり、STATICFILES_DIRSでどんなフォルダが指定されていようと、STATIC_URLが”/static/”の場合は、ブラウザから
+#    localhost:8000/static/<cssファイル名>/
+#    などとすることで、CSSファイルを見ることが可能です(https://itc.tokyo/django/setup-static/)
+STATIC_URL = '/static/'
+
+# STATICFILES_DIRS
+# 1. アプリケーションやそれ以外のファイルから共通した静的ファイルを利用したい場合に指定します。
+#    つまり共通して利用したい静的ファイルを、指定先に保存することで、すべてのアプリケーションなどで利用できるということです。
+#    デフォルトではSTATICFILES_DIRSの記載はありません。STATICFILES_DIRS指定の静的ファイルは、STATIC＿ROOTにコピーされます。
+#    https://office54.net/python/django/css-javascript-static
+# 2. STATICFILES_DIRSは、
+#    - ローカル環境で{% static %}タグを使った際に見に行く先のフォルダ
+#    - collectstaticを実行した際に見に行くフォルダ
+#    です。(https://itc.tokyo/django/setup-static/)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
