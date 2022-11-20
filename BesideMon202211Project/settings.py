@@ -27,9 +27,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['besidemonitor01.herokuapp.com',   # deploy
+# for PythonAnyWhere
+ALLOWED_HOSTS = ['besidemonitor2022.pythonanywhere.com',   # deploy
                  '127.0.0.1',                       # local host
                  ]
+
+# for Heroku
+# ALLOWED_HOSTS = ['besidemonitor01.herokuapp.com',   # deploy
+#                  '127.0.0.1',                       # local host
+#                  ]
 
 
 # Application definition
