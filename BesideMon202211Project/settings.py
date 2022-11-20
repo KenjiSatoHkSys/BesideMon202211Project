@@ -137,8 +137,8 @@ except ImportError:
     pass
 
 if not DEBUG:
-    SECRET_KEY = os.environ['SECRET_KEY']
-
+    # SECRET_KEY = os.environ['SECRET_KEY']  # Herokuではこれを使用した
+    SECRET_KEY = os.getenv("SECRET_KEY")  # PythonAnywhereではチュートリアルに従いこちらに変更
 
 # STATIC_ROOT
 # 1. collectstaticを実行するにあたって、staticファイルを集める場所
