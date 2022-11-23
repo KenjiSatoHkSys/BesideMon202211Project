@@ -150,7 +150,9 @@ if not DEBUG:
 # 1. collectstaticを実行するにあたって、staticファイルを集める場所
 # 2. python manage.py collectstaticを実行することで、指定先フォルダに静的ファイルがコピーされます。本番環境のみで使用します。
 #    https://office54.net/python/django/css-javascript-static
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # for Heroku
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # for PythonAnyWhere
+
 
 # STATIC_URL
 # 1. Djangoからstaticファイルにアクセスするurl。
