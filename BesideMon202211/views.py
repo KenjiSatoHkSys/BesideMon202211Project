@@ -190,11 +190,11 @@ def index(request):
     now = dt_now.time()  # 現在時刻
     # dt_st1～dt_st2の期間に来たリクエストに対してはlogin画面へ誘導
     # ローカル（テスト）用
-    dt_st1 = datetime.time(22, 25, 0)  # JST
-    dt_st2 = datetime.time(6, 35, 0)  # JST
+#    dt_st1 = datetime.time(22, 25, 0)  # JST
+#    dt_st2 = datetime.time(6, 35, 0)  # JST
     # サーバー用
-#    dt_st1 = datetime.time(13, 0, 0)  # 13:00 UTC = 22:00 JST
-#    dt_st2 = datetime.time(21, 0, 0)  # 21:00 UTC = 6:00 JST
+    dt_st1 = datetime.time(13, 0, 0)  # 13:00 UTC = 22:00 JST
+    dt_st2 = datetime.time(21, 0, 0)  # 21:00 UTC = 6:00 JST
     if (dt_st1 <= now < dt_st2):
         return render(request, 'BesideMon202211/login.html')
 
