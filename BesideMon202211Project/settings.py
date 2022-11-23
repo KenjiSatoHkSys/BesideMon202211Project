@@ -176,6 +176,6 @@ STATIC_URL = '/static/'
 #    - ローカル環境で{% static %}タグを使った際に見に行く先のフォルダ
 #    - collectstaticを実行した際に見に行くフォルダ
 #    です。(https://itc.tokyo/django/setup-static/)
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+# STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
+# ]
